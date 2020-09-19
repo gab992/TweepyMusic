@@ -18,10 +18,10 @@ from gensim.models import KeyedVectors
 import pickle
 import os
 
-consumer_key = 'ywojVZT3SBZWLHXKYoMl39Eqx'
-consumer_secret = 'O4dfBtDiirV5QMO4H6CqM2br63FndUoYuNQjZGaPjgxoiblypk'
-access_token = '1281680128351903751-UdocdoBWHyGOvGeYkIMszubKJcVBnc'
-access_token_secret = 'VL0uMsDmhaGwRy3CVe0iHUoBCZV0ElLTChoSJTg578IoI'
+consumer_key = ''
+consumer_secret = ''
+access_token = ''
+access_token_secret = ''
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
@@ -36,14 +36,9 @@ class Listener(StreamListener):
         self.output_file = output_file
     def on_status(self, status):
         if len(prep_text(status.text))>0:
-            #print(get_vec(prep_text(status.text)).shape)
-            #sender.send_message('/play_this', get_vec(prep_text(status.text)).tolist()) NOT WORKING
             try:
-                #print(get_vec(prep_text(status.text)).max(),get_vec(prep_text(status.text)).min())
                 vals = ((get_vec(prep_text(status.text))))
-                        #*70).round()
                 sender.send_message('/play_this', vals[0:14].tolist())
-                #print(vals)
             except:
                 pass
     def on_error(self, status_code):
@@ -89,6 +84,4 @@ while (topic != 'stop'):
         except KeyboardInterrupt:
             print("Stopped.")
         finally:
-    #        print('Done.')
             stream.disconnect()
-    #        output.close()
