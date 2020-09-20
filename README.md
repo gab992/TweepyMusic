@@ -28,3 +28,4 @@ In order to run this project on your own, you need (in addition to the files in 
 - Open twitter_instrument.py in a text editor and add your twitter api credentials in lines 19-22.  
 - Open SonicPi and either copy and paste tweepy_sonicpi.rb into a buffer and run it, or run a buffer with the line of code specified in the earlier description of tweepy_sonicpi.rb.  
 - Run twitter_instrument.py from the command line using "python twitter_instrument.py" and follow the command line prompts!  
+**note** the first run will take a long time because it will save the word embeddings as a pickle file in the directory you are working in. On subsequent runs the code will just use the pickle file and thus will run much faster.  
