@@ -1,7 +1,5 @@
 import tweepy
-import pandas as pd
 import numpy as np
-import json
 import sys
 from tweepy import OAuthHandler
 from tweepy import API
